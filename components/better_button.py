@@ -3,13 +3,14 @@ import tkinter as tk
 from tkinter import *
 
 
-class Btn(tk.Button):
-    def __init__(self, master: None, text, icon, fg, bg):
+class Better_button(tk.Button):
+    def __init__(self, master: None, text, icon, fg, bg, command):
         super().__init__(master)
         self.text = text
         self.icon = icon
         self.fg = fg
         self.bg = bg
+        self.command = command
         
         self["width"] = 300
         self["text"] = self.text
@@ -22,6 +23,7 @@ class Btn(tk.Button):
         self["activebackground"] = self.fg
         self["fg"] = self.fg
         self["bg"] = self.bg
+        self["command"] = self.command
 
         self.bind("<Enter>", self.on_enter)
         self.bind("<Leave>", self.on_leave)

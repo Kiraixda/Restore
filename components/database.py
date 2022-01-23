@@ -25,6 +25,10 @@ class Database:
             messagebox.showerror("Error", f"{err}")
     
 
+    def save(self):
+        pass
+
+
     def close(self):
         try:
             self.cur.close()

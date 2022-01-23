@@ -9,7 +9,7 @@ from sqlite3 import Error
 from PIL import Image, ImageTk
 
 # files
-from btn import Btn
+from components.better_button import Better_button
 
 class SaveUI(tk.Tk):
     def __init__(self, master, database):
@@ -18,9 +18,10 @@ class SaveUI(tk.Tk):
         self.db = database
         self.configure(background=c.bg)
         self.wm_title("Re:store (save)")
-        self.wm_protocol("WM_WINDOW_DESTROY", self.destroy)
-        self.bind("<Escape>", self.destroy)
+        self.wm_protocol("WM_WINDOW_DESTROY", self.close)
+        self.bind("<Escape>", self.close)
 
 
-
-        
+    def close(self, e= None):
+        self.master.wm_deiconify()
+        self.destroy()
