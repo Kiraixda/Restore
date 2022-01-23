@@ -1,0 +1,6 @@
+bg = "#141414"
+savecolor = "#25dae9"
+searchcolor = "#e96625"
+deletecolor = "#e9252c"
+updatecolor = "#34eb62"
+gencolor = "#7134eb"
