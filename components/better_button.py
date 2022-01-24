@@ -4,7 +4,7 @@ from tkinter import *
 
 
 class Better_button(tk.Button):
-    def __init__(self, master: None, text, icon, fg, bg, command):
+    def __init__(self, master: None, text, icon, fg, bg, command= None):
         super().__init__(master)
         self.text = text
         self.icon = icon
@@ -15,7 +15,7 @@ class Better_button(tk.Button):
         self["width"] = 300
         self["text"] = self.text
         self["font"] = (None, 20, "bold")
-        self["image"] = self.icon,
+        self["image"] = self.icon
         self["compound"] = "left"
         self["borderwidth"] = 0
         self["highlightthickness"] = 0
