@@ -53,8 +53,8 @@ class MainUI(tk.Tk):
                             self.save_icon,
                             c.savecolor,
                             c.bg,
-                            self.on_save)
-        self.save_btn.pack()
+                            self.on_save).pack()
+        
 
 
         # search button
@@ -66,8 +66,7 @@ class MainUI(tk.Tk):
                             self.search_icon,
                             c.searchcolor,
                             c.bg,
-                            None)
-        self.search_btn.pack()
+                            None).pack()
 
 
         # update button
@@ -79,8 +78,7 @@ class MainUI(tk.Tk):
                             self.update_icon,
                             c.updatecolor,
                             c.bg,
-                            None)
-        self.update_btn.pack()
+                            None).pack()
 
         
         # generate button
@@ -92,8 +90,7 @@ class MainUI(tk.Tk):
                         self.gen_icon,
                         c.gencolor,
                         c.bg,
-                        None)
-        self.gen_btn.pack()
+                        None).pack()
 
 
         # delete button
@@ -105,8 +102,7 @@ class MainUI(tk.Tk):
                             self.delete_icon,
                             c.deletecolor,
                             c.bg,
-                            None)
-        self.delete_btn.pack()
+                            None).pack()
     
     
     # closing everything
