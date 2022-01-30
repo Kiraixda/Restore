@@ -1,5 +1,5 @@
 # modules
-import os
+import os, datetime
 import tkinter as tk
 import colors as c
 from tkinter import *
@@ -20,9 +20,10 @@ class SaveUI(tk.Tk):
         self.wm_title("Re:store (save)")
         self.wm_protocol("WM_DELETE_WINDOW", self.close)
         self.bind("<Escape>", self.close)
+        self.bind("<Return>", self.on_submit)
 
         # service parts
-        self.service_txt = StringVar()
+        self.service_txt = StringVar(self)
         self.service_label = Label(self,
                                 bg=c.bg,
                                 fg=c.white,
@@ -43,7 +44,7 @@ class SaveUI(tk.Tk):
 
 
         # email parts
-        self.email_txt = StringVar()
+        self.email_txt = StringVar(self)
         self.email_label = Label(self,
                                 bg=c.bg,
                                 fg=c.white,
@@ -64,7 +65,7 @@ class SaveUI(tk.Tk):
 
 
         # password parts
-        self.password_txt = StringVar()
+        self.password_txt = StringVar(self)
         self.password_label = Label(self,
                                 bg=c.bg,
                                 fg=c.white,
@@ -103,9 +104,21 @@ class SaveUI(tk.Tk):
                                         self.submit_icon,
                                         c.submitcolor,
                                         c.bg,
-                                        None).grid(row=3, column=1, pady=20)
+                                        self.on_submit).grid(row=3, column=1, pady=20)
 
 
+
+    def on_submit(self, e= None):
+        if self.service_txt.get() and self.email_txt.get() and self.password_txt.get():
+            service = self.service_txt.get().lower()
+            email = self.email_txt.get()
+            password = self.password_txt.get()#
+            timestamp = datetime.datetime.now().strftime("%d/%m/%Y")
+            self.db.save(service, email, password, timestamp)
+            self.close()
+        
+        else:
+            messagebox.showwarning("Warning", "Fill in every field")
 
     def close(self, e= None):
         self.master.wm_deiconify()
