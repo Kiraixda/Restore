@@ -128,6 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# components
+components.__pycache__/
+components.windows.__pycache__/
 .Database
 Database/
 test.py

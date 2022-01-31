@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # modules
 import os, sys
 import tkinter as tk
@@ -8,9 +9,9 @@ from PIL import Image, ImageTk
 
 
 # files
-from components.better_button import Better_button
+from components.widgets.better_button import Better_button
 from components.database import Database
-from components.saveui import SaveUI
+from components.windows.saveui import SaveUI
 
 # main window class
 class MainUI(tk.Tk):

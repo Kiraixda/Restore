@@ -7,8 +7,8 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 
 # files
-from components.better_button import Better_button
-from components.better_entry import Better_entry
+from components.widgets.better_button import Better_button
+from components.widgets.better_entry import Better_entry
 
 # saveui class
 class SaveUI(tk.Tk):
@@ -94,7 +94,7 @@ class SaveUI(tk.Tk):
                                         self.cancel_icon,
                                         c.deletecolor,
                                         c.bg,
-                                        self.close).grid(row=3, column=0, pady=20)
+                                        self.close).grid(row=3, column=0)
         
         self.submit_img = Image.open(os.path.join("images", "submit.png"))
         self.submit_img = self.submit_img.resize((50, 50), Image.ANTIALIAS)
@@ -104,7 +104,7 @@ class SaveUI(tk.Tk):
                                         self.submit_icon,
                                         c.submitcolor,
                                         c.bg,
-                                        self.on_submit).grid(row=3, column=1, pady=20)
+                                        self.on_submit).grid(row=3, column=1)
 
 
 
@@ -112,7 +112,7 @@ class SaveUI(tk.Tk):
         if self.service_txt.get() and self.email_txt.get() and self.password_txt.get():
             service = self.service_txt.get().lower()
             email = self.email_txt.get()
-            password = self.password_txt.get()#
+            password = self.password_txt.get()
             timestamp = datetime.datetime.now().strftime("%d/%m/%Y")
             self.db.save(service, email, password, timestamp)
             self.close()
